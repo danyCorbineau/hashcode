@@ -9,7 +9,7 @@ public class Endpoint {
 	int latCache=0;
 	int[] tabID;
 	int nbrCacheConnected;
-	Map<Integer,Integer> cacheServer;
+	<Integer,Integer> cacheServer=new HashMap<Integer, Integer>();;
 
 	
 	public Endpoint(int latVidFromServer, int nbrCacheConnected){
