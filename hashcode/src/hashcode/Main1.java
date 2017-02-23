@@ -11,6 +11,7 @@ public class Main1 {
 		//sc.next();
 		//lol
 		sc.close();
+		//bonjour
 	}
 
 }
