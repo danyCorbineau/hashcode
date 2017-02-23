@@ -2,17 +2,22 @@ package youtubeGame;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Endpoint {
+	int ID;
 	int NbrReqVid=0;
 	int latVidFromServer=0;
 	int latCache=0;
 	int[] tabID;
 	int nbrCacheConnected;
-	<Integer,Integer> cacheServer=new HashMap<Integer, Integer>();;
+	Map<Integer,Integer> cacheServer=new HashMap<Integer, Integer>();
+	Map<Integer,Integer> cacheVid=new HashMap<Integer, Integer>();
+;
 
 	
-	public Endpoint(int latVidFromServer, int nbrCacheConnected){
+	public Endpoint(int ID, int latVidFromServer, int nbrCacheConnected){
+		this.ID=ID;
 		this.latVidFromServer=latVidFromServer;
 		this.nbrCacheConnected=nbrCacheConnected;
 		tabID=new int[nbrCacheConnected];
@@ -33,6 +38,9 @@ public class Endpoint {
 		return this.nbrCacheConnected;
 	}
 	public void sortCacheLatency(){
-		
+		System.out.println(this.cacheServer);
+	}
+	public void nbrReqIDVid(int VidID, int nbrReq){
+		cacheVid.put(VidID, nbrReq);
 	}
 }
