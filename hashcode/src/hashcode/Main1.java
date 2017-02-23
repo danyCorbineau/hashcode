@@ -9,9 +9,7 @@ public class Main1 {
 		
 		//sc.nextLine();
 		//sc.next();
-		//lol
 		sc.close();
-		//bonjour
 	}
 
 }
