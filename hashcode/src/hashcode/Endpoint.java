@@ -1,4 +1,4 @@
-package hashcode;
+package youtubeGame;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class Endpoint {
 		int latence;
 		String[] tabCache=lineCache.split(" ");
 		int[] tabCacheInt = new int[2];
-		System.out.println(tabCache[0]+";"+tabCache[1]);
+		//System.out.println(tabCache[0]+";"+tabCache[1]);
 		tabCacheInt[0]=Integer.parseInt(tabCache[0].trim());
 		tabCacheInt[1]=Integer.parseInt(tabCache[1].trim());
 		cacheServer.add(tabCacheInt);
@@ -40,11 +40,28 @@ public class Endpoint {
 	public int getCacheConnected(){
 		return this.nbrCacheConnected;
 	}
-	/*public void sortCacheLatency(){
-		for(int i=0;i<cacheServer.size();i++){
-			cacheServer.get
+	public void sortCacheLatency(){
+		Map<Integer,Integer> sortedMap = new HashMap<Integer,Integer>();
+		int min = 0;
+		
+		
+		while(sortedMap.size()<cacheServer.size()){
+			int[] tabTemp;//recup de la premiere valeur de la liste
+			int tempMin=500;//mise de la latence max
+			for(int i=0;i<cacheServer.size();i++){//test de la valeur minimale
+				tabTemp=cacheServer.get(i);//recup du tableau de valeur 
+				if(tabTemp[1]<tempMin){//si la latence est inférieure a la latence deja minimum
+					min=i;//on dit que ce'st cette valeur qui est minimum
+					tempMin=tabTemp[1];//on dit que la valeur minimum temporellement est cete latence
+					sortedMap.put(tabTemp[0],tabTemp[1]);//on ajoute dans la map triée
+					
+					System.out.println(tabTemp[0]+" "+tabTemp[1]);
+				}
+				
+			}
+			cacheServer.remove(min);
 		}
-	}*/
+	}
 	public void nbrReqIDVid(int VidID, int nbrReq){
 		//cacheVid.put(VidID, nbrReq);
 	}
