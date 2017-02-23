@@ -26,9 +26,13 @@ public class Endpoint {
 		System.out.println(tabCache[0]+";"+tabCache[1]);
 		idCache=Integer.parseInt(tabCache[0].trim());
 		latence=Integer.parseInt(tabCache[1].trim());
+		cacheServer.put(idCache , latence);
+
 	}
 	public int getCacheConnected(){
 		return this.nbrCacheConnected;
 	}
-	public void sortCacheLatency()
+	public void sortCacheLatency(){
+		
+	}
 }
