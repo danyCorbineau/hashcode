@@ -1,4 +1,4 @@
-package youtubeGame;
+package hashcode;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,10 +71,10 @@ public class Endpoint {
 			int tempMin=500;//mise de la latence max
 			for(int i=0;i<cacheServer.size();i++){//test de la valeur minimale
 				tabTemp=cacheServer.get(i);//recup du tableau de valeur 
-				if(tabTemp[1]<tempMin){//si la latence est infÃ©rieure a la latence deja minimum
+				if(tabTemp[1]<tempMin){//si la latence est inférieure a la latence deja minimum
 					min=i;//on dit que ce'st cette valeur qui est minimum
 					tempMin=tabTemp[1];//on dit que la valeur minimum temporellement est cete latence
-					sortedMap.put(tabTemp[0],tabTemp[1]);//on ajoute dans la map triÃ©e
+					sortedMap.put(tabTemp[0],tabTemp[1]);//on ajoute dans la map triée
 					
 					System.out.println(tabTemp[0]+" "+tabTemp[1]);
 				}

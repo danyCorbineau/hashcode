@@ -75,7 +75,8 @@ public class Main1 {
 			
 			sc.close();
 			
-			write();
+			
+			//write();
 			
 			/*System.out.println("nbVideo:"+nbVideo);
 			System.out.println("endPoint:"+endPoint);
@@ -96,11 +97,41 @@ public class Main1 {
 	{
 		ArrayList<Cache> c=new ArrayList<>();
 		
+		for(int j=0;j<nbCache;j++)
+			c.add(new Cache(cacheMemory,j));
 		
+		for(int j=0;j<ep.length;j++)
+		{
+			ep[j].sortCacheLatency();
+			ep[j].sortVidByReq();
+		}
+			
+		for (int i = 0; i<= ep.length-1; i++){
+			Endpoint currentEndPoint = ep[i];
+			for(int j = 0; j< currentEndPoint.sortedRequestedVid.size(); j++){
+				for(int k=0; c.get(k).addVideo(currentEndPoint.sortedRequestedVid.keySet().toArray()[j],currentEndPoint.sortedRequestedVid.keySet().toArray()[j])==false; k++){
+					
+				}
+			}
+		}
+		
+		
+		
+		int serverUse=0;
+		for(int j=0;j<c.size();j++)
+		{
+			if(c.get(j).isUse())
+				serverUse++;
+		}
+			
 		try{
-		    PrintWriter writer = new PrintWriter("return.txt", "ASCII");
-		    writer.println("The first line");
-		    writer.println("The second line");
+		    PrintWriter writer = new PrintWriter("return.txt", "US-ASCII");
+		    writer.println(serverUse);
+		    
+		    
+		    for(int j=0;j<c.size();j++)
+		    	c.get(j).write(writer);
+		    
 		    writer.close();
 		} catch (IOException e) {
 		   // do something
