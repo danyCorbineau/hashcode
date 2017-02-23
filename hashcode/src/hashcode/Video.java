@@ -1,4 +1,4 @@
-
+package hashcode;
 public class Video {
 	
 	private int S;
