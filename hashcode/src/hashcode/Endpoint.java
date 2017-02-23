@@ -1,6 +1,8 @@
 package youtubeGame;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -11,7 +13,7 @@ public class Endpoint {
 	int latCache=0;
 	int[] tabID;
 	int nbrCacheConnected;
-	Map<Integer,Integer> cacheServer=new HashMap<Integer, Integer>();
+	List<int[]> cacheServer=new ArrayList<int[]>();
 	Map<Integer,Integer> cacheVid=new HashMap<Integer, Integer>();
 ;
 
@@ -28,19 +30,22 @@ public class Endpoint {
 		int idCache;
 		int latence;
 		String[] tabCache=lineCache.split(" ");
+		int[] tabCacheInt = new int[2];
 		System.out.println(tabCache[0]+";"+tabCache[1]);
-		idCache=Integer.parseInt(tabCache[0].trim());
-		latence=Integer.parseInt(tabCache[1].trim());
-		cacheServer.put(idCache , latence);
+		tabCacheInt[0]=Integer.parseInt(tabCache[0].trim());
+		tabCacheInt[1]=Integer.parseInt(tabCache[1].trim());
+		cacheServer.add(tabCacheInt);
 
 	}
 	public int getCacheConnected(){
 		return this.nbrCacheConnected;
 	}
-	public void sortCacheLatency(){
-		System.out.println(this.cacheServer);
-	}
+	/*public void sortCacheLatency(){
+		for(int i=0;i<cacheServer.size();i++){
+			cacheServer.get
+		}
+	}*/
 	public void nbrReqIDVid(int VidID, int nbrReq){
-		cacheVid.put(VidID, nbrReq);
+		//cacheVid.put(VidID, nbrReq);
 	}
 }
